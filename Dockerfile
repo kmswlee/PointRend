@@ -20,7 +20,8 @@ COPY package.json ./
 RUN npm install
 RUN mkdir /workspace/images
 RUN mkdir /workspace/output
-RUN git clone https://github.com/kmswlee/ainized-PointRend.git
+
+COPY . .
 
 EXPOSE 8080
 ENTRYPOINT npm start
