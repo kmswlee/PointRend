@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info: 
+  title: PointRend:image segmentation as rendering by ainize
+  version: 0.1.1
+
+  servers: 
+  - url: https://endpoint.ainize.ai/kmswlee/point-rend/
+
+
+paths:
+  /workspace:
+  get:
+    parameters:
+      - in: path
+        name: input1.jpg
+        required: true
+        schema: 
+          type: object
+    parameters:
+      - in: path
+        name: input2.jpg
+        required: true
+        schema: 
+          type: object
+    responses:
+      '200':
+        description: PointRend on image.
+        requestBody:
+          content: 
+            multipart/form-data: # Media type
+              schema:            # Request payload
+                type: object
+                properties:
+                  profileImage:  # Part 3 (an image)
+                    type: string
+                    format: binary
+      
+      '500':
+        description: The server is error
+      default:
+        description: Unexpected error

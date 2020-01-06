@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Express</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #canvas-container {
+            display: block;
+            width: 100px;
+        }
+        
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="jumbotron">
+        <div class="container">
+            <h1>PointRend</h1>
+            <p>an numpy-based implement of PointRend</p>
+            
+            <form action="/eval" method="post" enctype="multipart/form-data">
+                <div>
+                    <h3>Upload Mask</h3>
+                    <input id="upload1" type='file' accept="image/jpg" name="image1" />
+                    
+                    <h3>Upload Image</h3>
+                    <input id="upload2" type='file' accept="image/jpg" name="image2" />
+                    
+                    <img id="image1" src="#" alt="your image" height=200 width=100>
+                    <img id="image2" src="#" alt="your image" height=200 width=100><br>
+                    
+                    <input class="btn btn-default" type="submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+<script>
+    window.addEventListener('load', function() {
+        document.querySelectorAll('input[type="file"]').forEach(element => {
+            element.addEventListener('change', function() {
+                console.log(this.id);
+                if (this.files && this.files[0]) {
+                    var img = document.getElementById(`image${this.id.replace("upload", "")}`);
+                    img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+                    img.onload = imageIsLoaded;
+                }
+            });
+        });
+    });
+    
+    function imageIsLoaded() { 
+        return this.src;
+    }
+</script>
+
+</html>

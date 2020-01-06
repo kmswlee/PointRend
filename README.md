@@ -1,36 +1,43 @@
-# PointRend
- An numpy-based implement of PointRend
+# Ainize-run-PointRend example
 
-This is an implement a PointRend function for Segmentation result refinement.
-The paper can be find at https://arxiv.org/pdf/1912.08193.pdf
+[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/kmswlee/ainize_PointRend)
 
-## Usage
-copy the pointGenerate.py to your directory and you are ready to rock.
+PointRend is image segmentation as rendering
+
+the PointRend neural network module performs point-based segementation predictions at adaptively selected locations based on 
+an iterative subvision algorithm. 
+
+this is implement a PointRend fuction for Segementation result refinement.
+
+PointRend is done in the following steps:
+1. upload an image and mask image 
+2. press the 'submit' button.
+3. it is output as PointRend on image
+
+
+# How to use
+this is dockerized, it can be run using docker commands.
+
+## Docker build
 ```
-from pointGenerate import getpoint
-my_mask = np.asarray(Image.open("tree_mask.jpg").resize((32,32)))
-# convert this 3-channel binary mask to a 1-channel binary one
-my_mask = my_mask[:,:,0]
-# get the point, nearest_neighbor chose the sample points locations
-points = getpoint(my_mask, k=2, beta = 0.95, nearest_neighbor=1)
-
-# plot the result
-points = list(zip(*points))
-plt.imshow(my_mask,cmap="Purples")
-plt.scatter(points[1],points[0],c='black',s=4)
+docker build -t pointrend .
 ```
-## Some result
-the original image and mask:
 
+## Docker run
+```
+docker run -d --rm -p 8080:8080 pointrend
+```
+Now the server is available at http://localhost:8080. 
+
+## image examples
+
+### input image
 ![mask](./tree_mask.jpg)
 ![img](./tree.jpg)
 
-when the mask is 32*32
+### result image
+<img src="/output.jpg" width="500" />  
 
-![mask size 32](./resolution=32.jpg)
-
-when the mask is 64*64
-![mask size 32](./resolution=64.jpg)
-
-when the mask is 128*128
-![mask size 32](./resolution=128.jpg)
+## References
+* https://github.com/JamesQFreeman/PointRend
+* https://arxiv.org/pdf/1912.08193.pdf
