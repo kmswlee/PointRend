@@ -12,6 +12,6 @@ points=list(zip(*points))
 
 plt.imshow(my_img,cmap="Purples")
 plt.scatter(points[1],points[0],c='black',s=4)
-plt.savefig('/workspace/public/output.jpg',dpi=400)
+plt.savefig('/workspace/public/output.png',dpi=400)
 
 print(1)
