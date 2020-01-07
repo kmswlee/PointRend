@@ -3,39 +3,39 @@ info:
   title: PointRend:image segmentation as rendering by ainize
   version: 0.1.1
 
-  servers: 
-  - url: https://endpoint.ainize.ai/kmswlee/point-rend/
+servers: 
+  - url: http://35.200.74.68
 
 
 paths:
-  /workspace:
-  get:
-    parameters:
-      - in: path
-        name: input1.jpg
-        required: true
-        schema: 
-          type: object
-    parameters:
-      - in: path
-        name: input2.jpg
-        required: true
-        schema: 
-          type: object
-    responses:
-      '200':
-        description: PointRend on image.
-        requestBody:
-          content: 
-            multipart/form-data: # Media type
-              schema:            # Request payload
-                type: object
-                properties:
-                  profileImage:  # Part 3 (an image)
-                    type: string
-                    format: binary
-      
-      '500':
-        description: The server is error
-      default:
-        description: Unexpected error
+  /eval:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image1:
+                  type: string
+                  format: binary
+                image2:
+                  type: string
+                  format: binary
+        
+      responses:
+        '200':
+          description: OK
+          content:
+            image/*:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request. User ID must be an integer and larger than 0.
+        '401':
+          description: Authorization information is missing or invalid.
+        '404':
+          description: A user with the specified ID was not found.
+        '5XX':
+          description: Unexpected error.

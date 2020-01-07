@@ -2,7 +2,7 @@ const express = require('express');
 const utils = require('../utils/index');
 const router = express.Router();
 const multer = require("multer");
-
+const fs = require('fs');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, `${__dirname}/../images/`);
@@ -23,8 +23,15 @@ router.post('/', upload.fields([
     } else {
         console.log(req.files);
         const predict = await utils.runPython();
+       
         // console.log(__dirname);
-        await res.redirect('../result.html');
+        //await res.send('http://35.200.74.68/output.png');
+       // await res.redirect('../result.html');
+        var s = fs.createReadStream('/workspace/public/output.png');
+        s.on('open', function () {
+        res.set('Content-Type', 'image/png');
+        s.pipe(res);
+        });
     }    
 });
 
