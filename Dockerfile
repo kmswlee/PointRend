@@ -23,5 +23,5 @@ RUN mkdir /workspace/output
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 80
 ENTRYPOINT npm start

@@ -23,7 +23,7 @@ app.use('/', indexRouter);
 app.use('/result', resultRouter);
 app.use('/eval', evaluationRouter);
 
-const server = app.listen(8080, () => {
+const server = app.listen(80, () => {
 });
 
 module.exports = app;
