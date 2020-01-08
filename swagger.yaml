@@ -4,7 +4,7 @@ info:
   version: 0.1.1
 
 servers: 
-  - url: http://35.200.74.68
+  - url: http://35.200.82.75:80
 
 
 paths:
@@ -22,7 +22,7 @@ paths:
                 image2:
                   type: string
                   format: binary
-        
+
       responses:
         '200':
           description: OK
