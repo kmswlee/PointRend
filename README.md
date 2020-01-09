@@ -1,6 +1,6 @@
 # Ainize-run-PointRend example
 
-[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/kmswlee/ainize_PointRend)
+[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/kmswlee/ainized-PointRend)
 
 PointRend is image segmentation as rendering
 
