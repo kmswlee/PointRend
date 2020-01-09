@@ -5,9 +5,12 @@
 PointRend is image segmentation as rendering
 
 the PointRend neural network module performs point-based segementation predictions at adaptively selected locations based on 
-an iterative subvision algorithm. 
+an iterative subvision algorithm.
 
-this is implement a PointRend fuction for Segementation result refinement.
+PointRend achieves higher sharpness on tricky object boundaries such as fingers than Mask R-CNN, and can be added on both semantic and instance segmentation. 
+
+so this project show intermediate results.
+if you perform instance segmentation, 
 
 PointRend is done in the following steps:
 1. upload an image and mask image 
