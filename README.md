@@ -31,7 +31,7 @@ docker build -t pointrend .
 ```
 docker run -d --rm -p 80:80 pointrend
 ```
-Now the server is available at http://localhost:8080. 
+Now the server is available at http://localhost:80. 
 
 ## image examples
 
