@@ -9,8 +9,8 @@ an iterative subvision algorithm.
 
 PointRend achieves higher sharpness on tricky object boundaries such as fingers than Mask R-CNN, and can be added on both semantic and instance segmentation. 
 
-so this project show intermediate results.
-if you perform instance segmentation, 
+so this module show intermediate results.
+if you want to perform instance segmentation, use this module to your instance segmentation or semantic segmentation project.
 
 PointRend is done in the following steps:
 1. upload an image and mask image 
@@ -38,7 +38,7 @@ Now the server is available at http://localhost:8080.
 ![mask](./tree_mask.jpg)
 ![img](./tree.jpg)
 
-### result image
+### intermediate result image
 <img src="/output.jpg" width="500" />  
 
 ## References
