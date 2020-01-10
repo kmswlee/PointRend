@@ -9,6 +9,7 @@ const resultRouter = require('./routes/result');
 const evaluationRouter = require('./routes/evaluation');
 
 const app = express();
+app.use(cors())
 console.log(path.join(__dirname, 'public'))
 app.use(logger('dev'));
 app.use(express.json());
