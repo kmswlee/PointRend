@@ -4,18 +4,19 @@
 
 PointRend is image segmentation as rendering
 
-the PointRend neural network module performs point-based segementation predictions at adaptively selected locations based on 
+The PointRend neural network module performs point-based segementation predictions at adaptively selected locations based on 
 an iterative subvision algorithm.
 
 PointRend achieves higher sharpness on tricky object boundaries such as fingers than Mask R-CNN, and can be added on both semantic and instance segmentation. 
 
-so this module show intermediate results.
-if you want to perform instance segmentation, use this module to your instance segmentation or semantic segmentation project.
+This module show intermediate results.
+So if you want to use Point Rend, apply Point Rend to your instance segmentation or semantic segmentation project.
 
-PointRend is done in the following steps:
-1. upload an image and mask image 
-2. press the 'submit' button.
-3. it is output as PointRend on image
+
+Ainize is done in the following steps:
+1. click 'default'.
+2. click 'try it out' and first, input mask-image file and second, input original-image file.
+3. click 'submit' button.
 
 
 # How to use
@@ -28,7 +29,7 @@ docker build -t pointrend .
 
 ## Docker run
 ```
-docker run -d --rm -p 8080:8080 pointrend
+docker run -d --rm -p 80:80 pointrend
 ```
 Now the server is available at http://localhost:8080. 
 
