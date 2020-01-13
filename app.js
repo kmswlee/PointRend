@@ -1,6 +1,7 @@
 const express = require('express');
 const image = require('express-image');
 const path = require('path');
+const cors= require("cors");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
@@ -9,7 +10,7 @@ const resultRouter = require('./routes/result');
 const evaluationRouter = require('./routes/evaluation');
 
 const app = express();
-app.use(cors())
+app.use(cors({origin: 'https://ainize.ai'}));
 console.log(path.join(__dirname, 'public'))
 app.use(logger('dev'));
 app.use(express.json());
